@@ -1,0 +1,18 @@
+@import 'normalize.css';
+@import './accesibility.scss';
+@import './custom-reset.scss';
+@import './font.scss';
+
+html {
+  font-family: 'NanumSquare', sans-serif;
+}
+
+body {
+}
+
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100% !important;
+}

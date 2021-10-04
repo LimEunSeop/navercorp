@@ -1,0 +1,212 @@
+@import 'styles/configs.scss';
+
+.grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 250px);
+  grid-template-areas:
+    'main-slider main-slider main-slider main-slider-desc main-slider-desc'
+    'main-slider main-slider main-slider item-desc1      item-img1'
+    'item-img2  item-desc2 item-desc2 item-img3       item-desc3'
+    'item-img5  item-img5  item-img4  item-desc4      item-img6';
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 250px);
+    grid-template-areas:
+      'main-slider main-slider main-slider main-slider-desc'
+      'main-slider main-slider main-slider item-img1'
+      'item-desc2  item-desc2  item-img2   item-desc1'
+      'item-desc4  item-img4   item-desc3  item-img3'
+      'item-img5   item-img5   item-img6   item-img6';
+  }
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 250px);
+    grid-template-areas:
+      'main-slider main-slider main-slider'
+      'main-slider main-slider main-slider'
+      'item-desc2  item-img1  item-desc3'
+      'item-img2   item-desc1 item-img3'
+      'item-desc4  item-img4  item-img6';
+  }
+
+  @include respond-to('xs') {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 500px);
+    grid-template-areas:
+      'main-slider'
+      'item-img1'
+      'item-img2'
+      'item-img3'
+      'item-img4'
+      'item-img5';
+  }
+}
+
+.main-slider {
+  overflow: hidden;
+  grid-area: main-slider;
+}
+
+.main-slider-desc {
+  grid-area: main-slider-desc;
+
+  &.run-animation {
+    animation: 1s ease-out fade-in;
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .desc {
+    p {
+      @include respond-to('xs') {
+        display: none;
+      }
+    }
+    @include respond-to('sm') {
+      box-sizing: border-box;
+      position: absolute;
+      top: 430px;
+      left: 0;
+      width: 100%;
+
+      h2,
+      h3,
+      p {
+        color: #fff;
+        font-style: normal;
+      }
+    }
+  }
+}
+
+.desc {
+  padding: 30px;
+  word-break: keep-all;
+
+  h2,
+  h3 {
+    color: #444;
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  p {
+    color: #999;
+    font-style: italic;
+    font-size: 14px;
+  }
+
+  @include respond-to('xs') {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    h2,
+    h3,
+    p {
+      color: #000;
+      font-style: normal;
+    }
+  }
+}
+
+.item-img1 {
+  grid-area: item-img1;
+}
+.item-desc1 {
+  grid-area: item-desc1;
+  background-color: #bff6fa;
+
+  .desc {
+    @include respond-to('xs') {
+      top: 920px;
+    }
+  }
+}
+
+.item-img2 {
+  grid-area: item-img2;
+}
+.item-desc2 {
+  grid-area: item-desc2;
+
+  .desc {
+    @include respond-to('xs') {
+      top: 1420px;
+
+      h2,
+      h3,
+      p {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.item-img3 {
+  grid-area: item-img3;
+}
+.item-desc3 {
+  grid-area: item-desc3;
+
+  .desc {
+    @include respond-to('xs') {
+      top: 1920px;
+    }
+  }
+}
+
+.item-img4 {
+  grid-area: item-img4;
+}
+.item-desc4 {
+  grid-area: item-desc4;
+  background-color: #e1f1fa;
+
+  .desc {
+    @include respond-to('xs') {
+      top: 2420px;
+
+      h2,
+      h3,
+      p {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.item-img5 {
+  grid-area: item-img5;
+
+  @include respond-to('sm') {
+    display: none;
+  }
+  @include respond-to('xs') {
+    display: block;
+  }
+}
+.item-img6 {
+  grid-area: item-img6;
+
+  @include respond-to('xs') {
+    display: none;
+  }
+}
