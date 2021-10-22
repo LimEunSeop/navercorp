@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.yourdomain.tld',
+    siteUrl: 'https://limeunseop.github.io/navercorp',
     title: 'navercorp',
   },
+  pathPrefix: 'navercorp',
   plugins: [
     'gatsby-plugin-root-import',
     'gatsby-plugin-sass',
